@@ -5,8 +5,11 @@ const { removeNonBrace, evaluateBraces } = require('./index');
  * removeNonBrace function tests
  */
 test('should remove all characters except for opening or closing braces', function() {
-    const testString = 'hel{lo wor}ld';
-    expect(removeNonBrace(testString)).toBe('{}');
+    expect(removeNonBrace('')).toBe('');
+    expect(removeNonBrace('{}')).toBe('{}');
+    expect(removeNonBrace('{}}')).toBe('{}}');
+    expect(removeNonBrace('hel{lo wor{ld')).toBe('{{');
+    expect(removeNonBrace('hel{lo wor}ld')).toBe('{}');
 });
 
 
