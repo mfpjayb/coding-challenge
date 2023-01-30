@@ -1,10 +1,8 @@
-function removeNonBrace(value) {
-    return value.replace(/[^{|}]/g, '');
-}
 
-function evaluateBraces(value) {
+module.exports = function evaluateBraces(value) {
     let unclosedCount = 0;
-    const braces = removeNonBrace(value);
+    // remove non-brace characters
+    const braces = value.replace(/[^{|}]/g, '');
 
     for (let brace of braces.split('')) {
         unclosedCount += brace === '{' ? 1 : -1;
@@ -13,8 +11,3 @@ function evaluateBraces(value) {
 
     return unclosedCount === 0;
 }
-
-module.exports = {
-    removeNonBrace,
-    evaluateBraces
-};

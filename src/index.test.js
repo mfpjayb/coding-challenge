@@ -1,21 +1,5 @@
-const { removeNonBrace, evaluateBraces } = require('./index');
+const evaluateBraces = require('./index');
 
-
-/**
- * removeNonBrace function tests
- */
-test('should remove all characters except for opening or closing braces', function() {
-    expect(removeNonBrace('')).toBe('');
-    expect(removeNonBrace('{}')).toBe('{}');
-    expect(removeNonBrace('{}}')).toBe('{}}');
-    expect(removeNonBrace('hel{lo wor{ld')).toBe('{{');
-    expect(removeNonBrace('hel{lo wor}ld')).toBe('{}');
-});
-
-
-/**
- * evaluateBraces function tests
- */
 test('should return "true" if all opening braces have matching closing braces', function() {
     expect(evaluateBraces('{}')).toBe(true);
     expect(evaluateBraces('{}{}')).toBe(true);
